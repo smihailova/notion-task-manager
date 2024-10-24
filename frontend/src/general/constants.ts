@@ -1,0 +1,1 @@
+export const API_HOST_HAME = process.env.API_HOST_HAME || 'http://localhost:4000';

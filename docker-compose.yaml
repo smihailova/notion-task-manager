@@ -1,0 +1,33 @@
+version: '3'
+services:
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    depends_on:
+      - api
+
+  api:
+    build:
+      context: ./backend/api
+    ports:
+      - "4000:4000"
+    environment:
+      - NODE_ENV=development
+      - INTEGRATION_HOST_NAME=http://integration:5000
+    depends_on:
+      - integration
+
+  integration:
+    build:
+      context: ./backend/integration
+    ports:
+      - "5000:5000"
+    environment:
+      - NODE_ENV=development

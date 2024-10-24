@@ -1,0 +1,16 @@
+{
+  "name": "task-management-assistant",
+  "version": "1.0.0",
+  "description": "An extension that helps users manage tasks more effectively by analyzing task descriptions and due dates.",
+  "type": "module",
+  "scripts": {
+    "start:docker": "docker-compose up --build",
+    "start:api": "cd backend/api-gateway && npm i && npm run dev:server",
+    "start:int": "cd backend/notion-integration && npm i && npm run dev:server",
+    "start:manager": "cd backend/ai-task-manager && npm i && npm run dev:server",
+    "start:db": "cd backend/mongodb && npm i && npm run dev:server",
+    "start:fe": "cd frontend && npm i && npm start"
+  },
+  "author": "Sofia Mikhailova",
+  "license": "MIT"
+}
